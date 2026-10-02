@@ -1,0 +1,9 @@
+.split-line { padding-bottom: 0.06em; margin-bottom: -0.06em; }
+.sr-word { display: inline-block; will-change: opacity, filter; }
+.sv { overflow: hidden; }
+.sv-row { overflow: hidden; white-space: nowrap; }
+.sv-track { display: inline-flex; will-change: transform; }
+.noise {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background-repeat: repeat; mix-blend-mode: multiply; opacity: 0.9;
+}

@@ -1,0 +1,49 @@
+/* Runinback design tokens.
+   Direction: Swiss / editorial, monochrome. Paper sheets with black ink for
+   the "index" surfaces, ink sections with cream type for contrast blocks. */
+:root {
+  --c-paper: #f2f1ed;
+  --c-paper-2: #e8e7e2;
+  --c-ink: #0b0b0b;
+  --c-ink-2: #151515;
+  --c-ink-3: #1f1f1f;
+  --c-cream: #fffce1;
+  --c-grey: #8a8a86;
+  --c-grey-light: #bdbcb7;
+
+  /* On paper */
+  --t-strong: #0b0b0b;
+  --t-body: #2a2a2a;
+  --t-muted: rgba(11, 11, 11, 0.45);
+  --t-faint: rgba(11, 11, 11, 0.22);
+  --line: rgba(11, 11, 11, 0.12);
+
+  /* On ink */
+  --ti-strong: #fffce1;
+  --ti-body: rgba(255, 252, 225, 0.78);
+  --ti-muted: rgba(255, 252, 225, 0.5);
+  --ti-faint: rgba(255, 252, 225, 0.22);
+  --line-ink: rgba(255, 252, 225, 0.12);
+
+  /* One accent, used only for live/active signals. */
+  --c-signal: #ff4d00;
+
+  --font-display: 'Inter Tight Variable', 'Inter Tight', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter Tight Variable', 'Inter Tight', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --fs-micro: 11px;
+  --fs-small: 13px;
+  --fs-body: 15px;
+  --fs-lead: clamp(17px, 1.6vw, 21px);
+  --fs-h3: clamp(22px, 2.4vw, 30px);
+  --fs-h2: clamp(40px, 6.4vw, 96px);
+  --fs-display: clamp(64px, 15vw, 240px);
+
+  --gutter: clamp(16px, 2.2vw, 28px);
+  --max: 1440px;
+  --section: clamp(96px, 14vw, 200px);
+  --radius: 4px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+}

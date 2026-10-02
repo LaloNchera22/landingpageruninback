@@ -1,0 +1,319 @@
+/* Cookie banner + preferences dialog. Swiss / editorial, monochrome.
+   Self-contained: falls back to literal values if tokens.css is absent. */
+
+.rib-cookie-bar,
+.rib-cookie-overlay {
+  --cb-paper: var(--c-paper, #f2f1ed);
+  --cb-ink: var(--c-ink, #0b0b0b);
+  --cb-cream: var(--c-cream, #fffce1);
+  --cb-line: var(--line, rgba(11, 11, 11, 0.12));
+  --cb-line-ink: var(--line-ink, rgba(255, 252, 225, 0.14));
+  --cb-muted: var(--t-muted, rgba(11, 11, 11, 0.5));
+  --cb-mono: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace);
+  --cb-sans: var(--font-body, 'Inter Tight Variable', 'Inter Tight', system-ui, sans-serif);
+  --cb-ease: var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  --cb-gutter: var(--gutter, 16px);
+  font-family: var(--cb-sans);
+}
+
+/* ---------- Bottom bar ---------- */
+.rib-cookie-bar {
+  position: fixed;
+  left: var(--cb-gutter);
+  right: var(--cb-gutter);
+  bottom: var(--cb-gutter);
+  z-index: 900;
+  max-width: calc(var(--max, 1440px) - 2 * var(--cb-gutter));
+  margin: 0 auto;
+  background: var(--cb-ink);
+  color: var(--cb-cream);
+  border: 1px solid var(--cb-line-ink);
+  border-radius: 4px;
+  animation: rib-cookie-rise 0.6s var(--cb-ease) both;
+}
+.rib-cookie-bar__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px 28px;
+  padding: 14px 14px 14px 20px;
+}
+.rib-cookie-bar__label {
+  margin: 0;
+  font-family: var(--cb-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 252, 225, 0.55);
+  white-space: nowrap;
+}
+.rib-cookie-bar__text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(255, 252, 225, 0.86);
+  max-width: 68ch;
+}
+.rib-cookie-bar__text a,
+.rib-cookie-dialog a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.rib-cookie-bar__text a:hover { text-decoration-thickness: 2px; }
+.rib-cookie-bar__actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ---------- Buttons ---------- */
+.rib-cbtn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 2px;
+  font-family: var(--cb-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+/* On the ink bar: Rechazar and Aceptar share one style (equal prominence). */
+.rib-cookie-bar .rib-cbtn {
+  background: var(--cb-cream);
+  color: var(--cb-ink);
+  border: 1px solid var(--cb-cream);
+}
+.rib-cookie-bar .rib-cbtn:hover { background: transparent; color: var(--cb-cream); }
+.rib-cookie-bar .rib-cbtn--ghost {
+  background: transparent;
+  color: var(--cb-cream);
+  border-color: var(--cb-line-ink);
+}
+.rib-cookie-bar .rib-cbtn--ghost:hover { border-color: var(--cb-cream); }
+.rib-cookie-bar :focus-visible { outline: 2px solid var(--c-signal, #ff4d00); outline-offset: 2px; }
+
+/* In the dialog, on paper. */
+.rib-cbtn--line {
+  background: transparent;
+  color: var(--cb-ink);
+  border: 1px solid var(--cb-ink);
+}
+.rib-cbtn--line:hover { background: var(--cb-ink); color: var(--cb-paper); }
+.rib-cbtn--solid {
+  background: var(--cb-ink);
+  color: var(--cb-paper);
+  border: 1px solid var(--cb-ink);
+}
+.rib-cbtn--solid:hover { background: transparent; color: var(--cb-ink); }
+
+/* ---------- Dialog ---------- */
+.rib-cookie-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: grid;
+  place-items: center;
+  padding: var(--cb-gutter);
+  background: rgba(11, 11, 11, 0.48);
+  animation: rib-cookie-fade 0.3s ease both;
+}
+.rib-cookie-dialog {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 600px);
+  max-height: min(100%, 720px);
+  background: var(--cb-paper);
+  color: var(--cb-ink);
+  border: 1px solid var(--cb-ink);
+  border-radius: 4px;
+  animation: rib-cookie-pop 0.45s var(--cb-ease) both;
+}
+.rib-cookie-dialog__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px 12px 20px;
+  border-bottom: 1px solid var(--cb-line);
+}
+.rib-cookie-dialog__label {
+  margin: 0;
+  font-family: var(--cb-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cb-muted);
+}
+.rib-cookie-dialog__close {
+  min-height: 36px;
+  padding: 0 4px;
+  font-family: var(--cb-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cb-ink);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.rib-cookie-dialog__close span { font-size: 16px; margin-left: 4px; }
+.rib-cookie-dialog__body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 24px 20px 8px;
+}
+.rib-cookie-dialog__title {
+  margin: 0 0 10px;
+  font-family: var(--font-display, var(--cb-sans));
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+.rib-cookie-dialog__intro {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--t-body, #2a2a2a);
+  max-width: 52ch;
+}
+.rib-cookie-cats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--cb-line);
+}
+.rib-cookie-cat {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: start;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--cb-line);
+}
+.rib-cookie-cat__idx {
+  font-family: var(--cb-mono);
+  font-size: 11px;
+  color: var(--cb-muted);
+  padding-top: 3px;
+}
+.rib-cookie-cat__title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.rib-cookie-cat__text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--t-body, #2a2a2a);
+}
+.rib-cookie-dialog__foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--cb-line);
+}
+.rib-cookie-dialog :focus-visible { outline: 2px solid var(--c-signal, #ff4d00); outline-offset: 2px; }
+
+/* ---------- Switch ---------- */
+.rib-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 32px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--cb-ink);
+  cursor: pointer;
+}
+.rib-switch:disabled { cursor: not-allowed; opacity: 0.55; }
+.rib-switch__state {
+  font-family: var(--cb-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-width: 3.5em;
+  text-align: right;
+}
+.rib-switch__track {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  border: 1px solid var(--cb-ink);
+  border-radius: 2px;
+  background: transparent;
+  transition: background-color 0.25s var(--cb-ease);
+}
+.rib-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  background: var(--cb-ink);
+  border-radius: 1px;
+  transition: transform 0.3s var(--cb-ease), background-color 0.25s;
+}
+.rib-switch[aria-checked='true'] .rib-switch__track { background: var(--cb-ink); }
+.rib-switch[aria-checked='true'] .rib-switch__thumb {
+  transform: translateX(18px);
+  background: var(--cb-paper);
+}
+
+/* ---------- Motion ---------- */
+@keyframes rib-cookie-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes rib-cookie-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes rib-cookie-pop {
+  from { opacity: 0; transform: translateY(12px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rib-cookie-bar,
+  .rib-cookie-overlay,
+  .rib-cookie-dialog { animation: none; }
+  .rib-switch__thumb,
+  .rib-switch__track,
+  .rib-cbtn { transition: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .rib-cookie-bar__inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 16px;
+  }
+  .rib-cookie-bar__actions { flex-wrap: wrap; }
+}
+@media (max-width: 520px) {
+  .rib-cookie-bar { left: 8px; right: 8px; bottom: 8px; }
+  .rib-cookie-bar__text { font-size: 13.5px; }
+  .rib-cookie-bar__actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .rib-cookie-bar__actions .rib-cbtn--ghost { grid-column: 1 / -1; order: 3; }
+  .rib-cookie-overlay { padding: 8px; align-items: end; }
+  .rib-cookie-dialog { max-height: calc(100% - 8px); }
+  .rib-cookie-dialog__body { padding: 20px 16px 4px; }
+  .rib-cookie-dialog__head { padding: 10px 12px 10px 16px; }
+  .rib-cookie-dialog__foot { display: grid; grid-template-columns: 1fr 1fr; padding: 14px 16px 16px; }
+  .rib-cookie-dialog__foot .rib-cbtn--solid { grid-column: 1 / -1; }
+  .rib-cookie-cat { grid-template-columns: 1fr auto; }
+  .rib-cookie-cat__idx { display: none; }
+}
