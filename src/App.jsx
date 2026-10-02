@@ -23,8 +23,8 @@ export default function App() {
 
   return (
     <>
-      <a className="skip-link" href="#contenido">Saltar al contenido</a>
-      <main id="contenido">
+      <a className="skip-link" href="#content">Skip to content</a>
+      <main id="content">
         <Hero />
         <Marquee />
         <Manifesto />

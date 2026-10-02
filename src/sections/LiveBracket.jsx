@@ -5,10 +5,10 @@ import SplitText from '../bits/SplitText';
 import SectionLabel from './SectionLabel';
 
 // An 8-player bracket that resolves itself as you scroll through it.
-const R1 = ['Nyx', 'Kiro', 'Tú', 'Vexa', 'Orin', 'Sable', 'Juno', 'Mako'];
-const R2 = ['Kiro', 'Tú', 'Sable', 'Juno'];
-const R3 = ['Tú', 'Sable'];
-const CHAMP = 'Tú';
+const R1 = ['Nyx', 'Kiro', 'You', 'Vexa', 'Orin', 'Sable', 'Juno', 'Mako'];
+const R2 = ['Kiro', 'You', 'Sable', 'Juno'];
+const R3 = ['You', 'Sable'];
+const CHAMP = 'You';
 
 function Round({ names, round, title }) {
   return (
@@ -19,7 +19,7 @@ function Round({ names, round, title }) {
           <div className="lb-match" key={m}>
             {[0, 1].map((k) => {
               const name = names[m * 2 + k];
-              return <span key={k} className={`lb-slot${name === 'Tú' ? ' is-you' : ''}`} data-name={name}>{name}</span>;
+              return <span key={k} className={`lb-slot${name === 'You' ? ' is-you' : ''}`} data-name={name}>{name}</span>;
             })}
           </div>
         ))}
@@ -37,7 +37,7 @@ export default function LiveBracket() {
       scrollTrigger: { trigger: '.lb-board', start: 'top 75%', end: 'bottom 45%', scrub: 0.6 },
     });
     tl.from('.lb-r1 .lb-slot', { autoAlpha: 0, x: -20, stagger: 0.04 })
-      .to('.lb-r1 .lb-slot:not([data-name="Kiro"]):not([data-name="Tú"]):not([data-name="Sable"]):not([data-name="Juno"])', { opacity: 0.25, textDecoration: 'line-through', stagger: 0.03 })
+      .to('.lb-r1 .lb-slot:not([data-name="Kiro"]):not([data-name="You"]):not([data-name="Sable"]):not([data-name="Juno"])', { opacity: 0.25, textDecoration: 'line-through', stagger: 0.03 })
       .from('.lb-r2 .lb-slot', { autoAlpha: 0, x: -20, stagger: 0.05 })
       .to('.lb-r2 .lb-slot[data-name="Kiro"], .lb-r2 .lb-slot[data-name="Juno"]', { opacity: 0.25, textDecoration: 'line-through' })
       .from('.lb-r3 .lb-slot', { autoAlpha: 0, x: -20, stagger: 0.06 })
@@ -54,28 +54,28 @@ export default function LiveBracket() {
         options={{ color: 0x3a3a38, backgroundColor: 0x0b0b0b, points: 9, maxDistance: 20, spacing: 18, showDots: false }}
       />
       <div className="live-inner">
-        <SectionLabel n="03" tone="ink">El bracket</SectionLabel>
+        <SectionLabel n="03" tone="ink">The bracket</SectionLabel>
         <SplitText as="h2" id="live-title" className="h2 live-title" type="chars" stagger={0.02}>
-          Ocho entran. Uno gana.
+          Eight enter. One wins.
         </SplitText>
-        <div className="lb-board" role="img" aria-label="Ejemplo de bracket de 8 jugadores: Tú ganas la final contra Sable y te llevas 68 créditos.">
+        <div className="lb-board" role="img" aria-label="Example 8-player bracket: you win the final against Sable and take 68 credits.">
           <div className="lb-head">
-            <span>Copa Viernes</span>
-            <span>8 jugadores · 10 créditos de inscripción</span>
+            <span>Friday Cup</span>
+            <span>8 players · 10-credit entry</span>
           </div>
           <div className="lb-grid" aria-hidden="true">
-            <Round names={R1} round={1} title="Cuartos" />
-            <Round names={R2} round={2} title="Semifinal" />
+            <Round names={R1} round={1} title="Quarterfinals" />
+            <Round names={R2} round={2} title="Semifinals" />
             <Round names={R3} round={3} title="Final" />
             <div className="lb-round lb-champ">
-              <span className="lb-round-title">Campeón</span>
+              <span className="lb-round-title">Champion</span>
               <div className="lb-champ-box">
                 <span className="lb-champ-name">{CHAMP}</span>
-                <span className="lb-prize">+68 créditos</span>
+                <span className="lb-prize">+68 credits</span>
               </div>
             </div>
           </div>
-          <p className="lb-foot">8 jugadores × 10 créditos = bolsa de 80. Campeón 68 · anfitrión 4 · Runinback 8.</p>
+          <p className="lb-foot">8 players × 10 credits = an 80-credit pool. Champion 68 · host 4 · Runinback 8.</p>
         </div>
       </div>
     </section>

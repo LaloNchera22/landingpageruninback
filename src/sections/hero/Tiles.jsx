@@ -27,14 +27,14 @@ function Versus({ active }) {
   });
   return (
     <div className="tile-in tv" ref={ref}>
-      <span className="tile-label">R1 · Partida 3</span>
+      <span className="tile-label">R1 · Match 3</span>
       <div className="tv-big" aria-hidden="true"><span>1</span><span>v</span><span>1</span></div>
       <svg className="tv-bracket" viewBox="0 0 120 60" aria-hidden="true">
         <path className="tv-path" d="M2 8 H40 V30 H70" />
         <path className="tv-path" d="M2 52 H40 V30" />
         <path className="tv-path" d="M70 30 H118" />
       </svg>
-      <span className="tile-label tv-win">Gana · avanza</span>
+      <span className="tile-label tv-win">Win · advance</span>
     </div>
   );
 }
@@ -55,7 +55,7 @@ function Seats({ active }) {
   });
   return (
     <div className="tile-in ts" ref={ref}>
-      <span className="tile-label">Lugares</span>
+      <span className="tile-label">Seats</span>
       <div className="ts-num" aria-hidden="true">{n}</div>
       <div className="ts-grid" aria-hidden="true">
         {Array.from({ length: 32 }, (_, i) => <i className="ts-dot" key={i} />)}
@@ -75,7 +75,7 @@ function Code({ active }) {
   }, [active, codes.length]);
   return (
     <div className="tile-in tc">
-      <span className="tile-label">Invitación privada</span>
+      <span className="tile-label">Private invite</span>
       <div className="tc-code" aria-hidden="true">
         {active ? <DecryptedText key={k} text={codes[k]} speed={34} trigger="view" /> : codes[0]}
       </div>
@@ -94,7 +94,7 @@ function Host({ active }) {
   });
   return (
     <div className="tile-in th" ref={ref}>
-      <span className="tile-label">Anfitrión</span>
+      <span className="tile-label">Host</span>
       <div className="th-word" aria-hidden="true">{'HOST'.split('').map((c, i) => <span key={i}>{c}</span>)}</div>
       <i className="th-cut" />
       <div className="th-pct" aria-hidden="true">+5%</div>
@@ -113,7 +113,7 @@ function Pool({ active }) {
   });
   return (
     <div className="tile-in tp" ref={ref}>
-      <span className="tile-label">Al campeón</span>
+      <span className="tile-label">To the champion</span>
       <div className="tp-num" aria-hidden="true"><span ref={numRef}>85</span><small>%</small></div>
       <div className="tp-bars" aria-hidden="true">
         <div className="tp-bar"><i style={{ width: '85%' }} /><span>85</span></div>
@@ -137,12 +137,12 @@ function Clock({ active }) {
   const frac = s / (24 * 3600);
   return (
     <div className="tile-in tk">
-      <span className="tile-label">Ventana de apelación</span>
+      <span className="tile-label">Appeal window</span>
       <div className="tk-time" aria-hidden="true">
         <span>{hh}</span><span>{mm}</span><span key={ss} className="tk-tick">{ss}</span>
       </div>
       <div className="tk-track" aria-hidden="true"><i style={{ transform: `scaleX(${frac})` }} /></div>
-      <span className="tile-label">Revisión humana</span>
+      <span className="tile-label">Human review</span>
     </div>
   );
 }
@@ -160,18 +160,18 @@ function Fair({ active }) {
   });
   return (
     <div className="tile-in tf" ref={ref}>
-      <span className="tile-label">Reglas</span>
+      <span className="tile-label">Rules</span>
       <ul className="tf-list" aria-hidden="true">
-        <li className="tf-row"><b className="tf-box">✕</b><span className="tf-txt">El host no juega</span></li>
-        <li className="tf-row"><b className="tf-box">✕</b><span className="tf-txt">10 min de espera</span></li>
-        <li className="tf-row"><b className="tf-box">✕</b><span className="tf-txt">Pruebas en sala</span></li>
-        <li className="tf-row"><b className="tf-box">✕</b><span className="tf-txt">Revisión humana</span></li>
+        <li className="tf-row"><b className="tf-box">✕</b><span className="tf-txt">Host can't play</span></li>
+        <li className="tf-row"><b className="tf-box">✕</b><span className="tf-txt">10-min wait</span></li>
+        <li className="tf-row"><b className="tf-box">✕</b><span className="tf-txt">Proof in room</span></li>
+        <li className="tf-row"><b className="tf-box">✕</b><span className="tf-txt">Human review</span></li>
       </ul>
     </div>
   );
 }
 
-const GENRES = ['PELEAS', 'DEPORTES', 'SHOOTERS', 'ESTRATEGIA', 'CARRERAS', 'CARTAS'];
+const GENRES = ['FIGHTING', 'SPORTS', 'SHOOTERS', 'STRATEGY', 'RACING', 'CARDS'];
 
 function Genres({ active }) {
   const ref = useTileTimeline(active, (el) => {
@@ -186,11 +186,11 @@ function Genres({ active }) {
   });
   return (
     <div className="tile-in tg" ref={ref}>
-      <span className="tile-label">Cualquier juego</span>
+      <span className="tile-label">Any game</span>
       <div className="tg-stack" aria-hidden="true">
         {GENRES.map((g, i) => <span className="tg-word" key={g} style={i ? undefined : { transform: 'none' }}>{g}</span>)}
       </div>
-      <span className="tile-label">con partidas privadas</span>
+      <span className="tile-label">with private matches</span>
     </div>
   );
 }

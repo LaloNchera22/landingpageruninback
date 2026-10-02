@@ -7,10 +7,10 @@ export default function Faq() {
   const [open, setOpen] = useState(0);
   return (
     <section className="faq" id="faq" aria-labelledby="faq-title">
-      <SectionLabel n="07">Preguntas frecuentes</SectionLabel>
+      <SectionLabel n="07">FAQ</SectionLabel>
       <div className="faq-grid">
         <SplitText as="h2" id="faq-title" className="h2" type="words" stagger={0.05}>
-          Lo que más nos preguntan.
+          What people ask us most.
         </SplitText>
         <div className="faq-list">
           {FAQ.map((item, i) => {

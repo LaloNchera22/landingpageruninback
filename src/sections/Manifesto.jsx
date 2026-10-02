@@ -4,16 +4,16 @@ import SectionLabel from './SectionLabel';
 export default function Manifesto() {
   return (
     <section className="manifesto" aria-labelledby="manifesto-title">
-      <SectionLabel n="01">Manifiesto</SectionLabel>
-      <h2 id="manifesto-title" className="visually-hidden">Por qué existe Runinback</h2>
+      <SectionLabel n="01">Manifesto</SectionLabel>
+      <h2 id="manifesto-title" className="visually-hidden">Why Runinback exists</h2>
       <ScrollReveal className="manifesto-text">
-        Cualquiera puede organizar un torneo. Pocos lo hacen bien. Runinback junta el bracket, las reglas, las salas
-        y los premios en un solo link, para que tú solo te preocupes por jugar.
+        Anyone can run a tournament. Few run it well. Runinback puts the bracket, the rules, the lobbies
+        and the prizes behind one link, so all you have to worry about is playing.
       </ScrollReveal>
       <div className="manifesto-meta">
-        <span>Para anfitriones</span>
-        <span>Para jugadores</span>
-        <span>Para cualquier juego con partidas privadas</span>
+        <span>For hosts</span>
+        <span>For players</span>
+        <span>For any game with private matches</span>
       </div>
     </section>
   );

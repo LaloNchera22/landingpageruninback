@@ -7,30 +7,30 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <img src="/logo-lockup.png" alt="Runinback" width="718" height="120" loading="lazy" className="footer-logo" />
-        <button type="button" className="footer-up" onClick={() => scrollToTarget('#inicio')}>Volver arriba ↑</button>
+        <button type="button" className="footer-up" onClick={() => scrollToTarget('#inicio')}>Back to top ↑</button>
       </div>
       <div className="footer-cols">
-        <nav aria-label="Secciones">
-          <span className="footer-h">Índice</span>
-          <a href="#como-funciona" onClick={(e) => { e.preventDefault(); scrollToTarget('#como-funciona'); }}>Cómo funciona</a>
-          <a href="#premios" onClick={(e) => { e.preventDefault(); scrollToTarget('#premios'); }}>Premios</a>
-          <a href="#faq" onClick={(e) => { e.preventDefault(); scrollToTarget('#faq'); }}>Preguntas frecuentes</a>
+        <nav aria-label="Sections">
+          <span className="footer-h">Index</span>
+          <a href="#how-it-works" onClick={(e) => { e.preventDefault(); scrollToTarget('#how-it-works'); }}>How it works</a>
+          <a href="#prizes" onClick={(e) => { e.preventDefault(); scrollToTarget('#prizes'); }}>Prizes</a>
+          <a href="#faq" onClick={(e) => { e.preventDefault(); scrollToTarget('#faq'); }}>FAQ</a>
         </nav>
         <nav aria-label="Legal">
           <span className="footer-h">Legal</span>
-          <a href="/terminos.html">Términos y condiciones</a>
-          <a href="/privacidad.html">Aviso de privacidad</a>
-          <a href="/cookies.html">Política de cookies</a>
-          <button type="button" onClick={openCookiePreferences}>Configurar cookies</button>
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/cookies.html">Cookie Policy</a>
+          <button type="button" onClick={openCookiePreferences}>Cookie settings</button>
         </nav>
         <div>
-          <span className="footer-h">Contacto</span>
+          <span className="footer-h">Contact</span>
           <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© 2026 Runinback. Todos los derechos reservados.</span>
-        <span>Runinback no está afiliado a ningún desarrollador ni editor de videojuegos.</span>
+        <span>© 2026 Runinback. All rights reserved.</span>
+        <span>Runinback is not affiliated with any game developer or publisher.</span>
       </div>
     </footer>
   );

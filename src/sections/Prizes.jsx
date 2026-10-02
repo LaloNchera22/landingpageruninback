@@ -10,29 +10,29 @@ export default function Prizes() {
   const [players, setPlayers] = useState(8);
   const pool = fee * players;
   const rows = [
-    { k: 'Campeón', pct: 85 },
-    { k: 'Anfitrión', pct: 5 },
+    { k: 'Champion', pct: 85 },
+    { k: 'Host', pct: 5 },
     { k: 'Runinback', pct: 10 },
   ];
 
   return (
-    <section className="prizes" id="premios" aria-labelledby="prizes-title">
-      <SectionLabel n="05">Premios</SectionLabel>
+    <section className="prizes" id="prizes" aria-labelledby="prizes-title">
+      <SectionLabel n="05">Prizes</SectionLabel>
       <div className="prizes-grid">
         <div className="prizes-copy">
           <SplitText as="h2" id="prizes-title" className="h2" type="words" stagger={0.05}>
-            A dónde va cada inscripción.
+            Where every entry fee goes.
           </SplitText>
           <p className="lead">
-            La bolsa es la suma de todas las inscripciones. El campeón se lleva el 85%, el anfitrión el 5% y Runinback el 10%. Pruébalo:
+            The prize pool is every entry fee paid. The champion takes 85%, the host 5%, and Runinback keeps 10%. Try it:
           </p>
           <div className="calc">
             <label className="calc-field">
-              <span className="calc-label">Inscripción <output>{fee} créditos</output></span>
+              <span className="calc-label">Entry fee <output>{fee} credits</output></span>
               <input type="range" min="1" max="100" step="1" value={fee} onChange={(e) => setFee(+e.target.value)} />
             </label>
             <fieldset className="calc-field">
-              <legend className="calc-label">Jugadores</legend>
+              <legend className="calc-label">Players</legend>
               <div className="calc-chips">
                 {SIZES.map((s) => (
                   <label key={s} className={`chip${players === s ? ' is-active' : ''}`}>
@@ -42,14 +42,14 @@ export default function Prizes() {
                 ))}
               </div>
             </fieldset>
-            <p className="calc-note">Ejemplo ilustrativo. No habrá dinero real hasta completar la revisión legal, y no en todos los países.</p>
+            <p className="calc-note">Illustrative example. There's no real money until legal review is complete, and not in every country.</p>
           </div>
         </div>
         <div className="prizes-board" aria-live="polite">
           <div className="pb-pool">
-            <span className="pb-label">Bolsa</span>
+            <span className="pb-label">Prize pool</span>
             <span className="pb-big"><CountUp to={pool} /></span>
-            <span className="pb-unit">créditos</span>
+            <span className="pb-unit">credits</span>
           </div>
           {rows.map((r) => (
             <div className="pb-row" key={r.k}>

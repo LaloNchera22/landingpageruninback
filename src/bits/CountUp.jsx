@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { gsap, prefersReducedMotion } from '../lib/motion';
 
 const fmt = (n, decimals) =>
-  n.toLocaleString('es-MX', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  n.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
 
 export default function CountUp({ to, from = 0, duration = 1.2, decimals = 0, className = '' }) {
   const ref = useRef(null);

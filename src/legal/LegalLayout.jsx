@@ -7,42 +7,42 @@ export const LEGAL_UPDATED = '2026-10-02';
 export const LEGAL_VERSION = '0.1';
 
 const LEGAL_LINKS = [
-  { href: '/terminos.html', label: 'Términos', key: 'terminos' },
-  { href: '/privacidad.html', label: 'Privacidad', key: 'privacidad' },
-  { href: '/cookies.html', label: 'Cookies', key: 'cookies' },
+  { href: '/terms.html', label: 'Terms of Service', key: 'terms' },
+  { href: '/privacy.html', label: 'Privacy Policy', key: 'privacy' },
+  { href: '/cookies.html', label: 'Cookie Policy', key: 'cookies' },
 ];
 
 /** Header + footer + cookie banner shared by every legal page (and the 404). */
 export function LegalShell({ current, children }) {
   return (
     <>
-      <a className="skip-link" href="#contenido">Saltar al contenido</a>
+      <a className="skip-link" href="#content">Skip to content</a>
       <header className="lg-header">
         <div className="lg-wrap lg-header__row">
-          <a className="lg-logo" href="/" aria-label={`${SITE.name} — inicio`}>
+          <a className="lg-logo" href="/" aria-label={`${SITE.name} — home`}>
             <img src="/logo-lockup-ink.png" alt={SITE.name} width="718" height="120" />
           </a>
           <a className="lg-back" href="/">
-            <span aria-hidden="true">←</span> Volver al inicio
+            <span aria-hidden="true">←</span> Back to home
           </a>
         </div>
       </header>
 
-      <main id="contenido" className="lg-main" tabIndex={-1}>
+      <main id="content" className="lg-main" tabIndex={-1}>
         {children}
       </main>
 
       <footer className="lg-footer">
         <div className="lg-wrap lg-footer__grid">
           <p className="lg-mono lg-footer__label">[ Legal ]</p>
-          <nav className="lg-footer__nav" aria-label="Documentos legales">
+          <nav className="lg-footer__nav" aria-label="Legal documents">
             {LEGAL_LINKS.map((l) => (
               <a key={l.key} href={l.href} aria-current={current === l.key ? 'page' : undefined}>
                 {l.label}
               </a>
             ))}
             <button type="button" className="lg-footer__prefs" onClick={openCookiePreferences}>
-              Configurar cookies
+              Cookie settings
             </button>
           </nav>
           <p className="lg-footer__meta">
@@ -73,13 +73,13 @@ export default function LegalLayout({ current, kicker = 'Legal', title, lead, se
           <h1 id="lg-title" className="lg-hero__title">{title}</h1>
           {lead && <p className="lg-hero__lead">{lead}</p>}
           <p className="lg-mono lg-hero__meta">
-            Última actualización: {LEGAL_UPDATED} · Versión {LEGAL_VERSION} (borrador, pendiente de revisión legal)
+            Last updated: {LEGAL_UPDATED} · Version {LEGAL_VERSION} (draft, pending legal review)
           </p>
         </section>
 
         <div className="lg-doc">
           <aside className="lg-toc" aria-labelledby="lg-toc-title">
-            <p id="lg-toc-title" className="lg-mono lg-toc__title">En esta página</p>
+            <p id="lg-toc-title" className="lg-mono lg-toc__title">On this page</p>
             <ol>
               {sections.map((s, i) => (
                 <li key={s.id}>
@@ -94,11 +94,11 @@ export default function LegalLayout({ current, kicker = 'Legal', title, lead, se
 
           <article className="lg-prose">
             <div className="lg-draft" role="note">
-              <p className="lg-mono">[ Borrador ]</p>
+              <p className="lg-mono">[ Draft — pending legal review ]</p>
               <p>
-                Este documento es un borrador de buena fe que describe cómo funciona {SITE.name}{' '}
-                antes de su lanzamiento. No es asesoría legal y aún no ha sido revisado por un
-                abogado. Los datos entre [corchetes] están pendientes de completar.
+                This document is a good-faith draft describing how {SITE.name} works before
+                launch. It is not legal advice and has not yet been reviewed by a lawyer. Details
+                in [brackets] are still to be filled in.
               </p>
             </div>
 

@@ -1,30 +1,30 @@
-# SEO — Runinback (landing "muy pronto")
+# SEO — Runinback ("coming soon" landing)
 
-## Qué está configurado
+## What's configured
 
-- **`index.html` (head)**: título (50 car.), meta description (146 car.), canonical `https://runinback.com/`, `robots` index/follow con `max-image-preview:large`, `theme-color` #0b0b0b, `color-scheme`, Open Graph (`es_MX`, imagen 1200×630 con alt), Twitter `summary_large_image`, favicons 16/32, apple-touch-icon y manifest.
-- **JSON-LD (`@graph`)**: `Organization` (logo `icon-512.png`, email de soporte), `WebSite`, `WebPage` y `FAQPage`.
-  - El `FAQPage` es copia literal de `src/content/faq.js`. **Si cambias una pregunta o respuesta, actualiza también el JSON-LD** (Google penaliza el marcado que no coincide con el contenido visible).
-- **`<noscript>`**: H1 + resumen + enlaces legales, para rastreadores sin JS.
-- **`public/robots.txt`**: permite todo y apunta al sitemap.
-- **`public/sitemap.xml`**: `/`, `/privacidad.html`, `/terminos.html`, `/cookies.html` (lastmod 2026-10-02).
-- **`public/site.webmanifest`**: nombre en español, colores de marca, iconos 192/512.
-- **`public/og-image.png`**: 1200×630, estilo editorial monocromo (logo, "Torneos de videojuegos.", bracket entre [ ]).
+- **`index.html` (head)**: title, meta description, canonical `https://runinback.com/`, `robots` index/follow with `max-image-preview:large`, `theme-color` #0b0b0b, `color-scheme`, Open Graph (`en_US`, 1200×630 image with alt), Twitter `summary_large_image`, favicons 16/32, apple-touch-icon and manifest.
+- **JSON-LD (`@graph`)**: `Organization` (logo `icon-512.png`, support email), `WebSite`, `WebPage` and `FAQPage`.
+  - The `FAQPage` is a literal copy of `src/content/faq.js`. **If you change a question or answer, update the JSON-LD too** (Google penalizes markup that doesn't match visible content).
+- **`<noscript>`**: H1 + summary + legal links, for crawlers without JS.
+- **`public/robots.txt`**: allows everything and points to the sitemap.
+- **`public/sitemap.xml`**: `/`, `/privacy.html`, `/terms.html`, `/cookies.html` (lastmod 2026-10-02).
+- **`public/site.webmanifest`**: English name, brand colors, 192/512 icons.
+- **`public/og-image.png`**: 1200×630, monochrome editorial style (logo, "Video game tournaments.", bracket inside [ ]).
 
-## Enfoque de palabras clave
+## Keyword focus
 
-Principal: **torneos de videojuegos**. Secundarias: **brackets / bracket de torneo**, **torneos 1v1 / 1 contra 1**, **crear torneo (online)**, **torneos con premios / bolsa de premios**, eliminación directa, torneos privados.
+Primary: **video game tournaments**. Secondary: **tournament brackets**, **1v1 tournaments**, **create a tournament (online)**, **tournaments with prizes / prize pool**, single elimination, private tournaments.
 
-- Un solo H1 visible por página, con "torneos de videojuegos". Sugerido: *"Torneos de videojuegos 1 contra 1. Crea tu bracket, compite y gana."*
-- H2 por sección que usen las secundarias de forma natural (p. ej. "Cómo crear un torneo", "Premios", "Preguntas frecuentes").
-- **Nunca** nombrar juegos ni editoras específicos.
+- One visible H1 per page containing "video game tournaments". Current: *"1v1 video game tournaments. Build your bracket, compete and win."*
+- Section H2s use the secondary terms naturally ("How it works", "Prizes", "FAQ").
+- **Never** name specific games or publishers.
 
-## Pendientes para el lanzamiento
+## Launch to-dos
 
-1. Verificar el dominio en **Google Search Console** y **Bing Webmaster Tools**; enviar `sitemap.xml`.
-2. Revisar la vista previa con el depurador de Facebook/Meta, el validador de X y la **Prueba de resultados enriquecidos** de Google (FAQPage).
-3. Cuando salga el dashboard: añadir sus URLs públicas (p. ej. lista de torneos públicos) al sitemap, actualizar `lastmod`, y bloquear en `robots.txt` las rutas privadas (`/app`, `/cuenta`, etc.). Los torneos privados deben llevar `noindex`.
-4. Cuando abra la plataforma: quitar "Muy pronto" de la meta description, del `<noscript>`, de la OG image y de la última FAQ.
-5. Actualizar `lastmod` del sitemap cada vez que cambien las páginas legales.
-6. Medir Core Web Vitals (Lighthouse / PageSpeed) tras el deploy; mantener LCP < 2.5 s.
-7. Opcional: agregar `sameAs` al `Organization` cuando existan redes sociales oficiales.
+1. Verify the domain in **Google Search Console** and **Bing Webmaster Tools**; submit `sitemap.xml`.
+2. Check previews with the Meta sharing debugger, the X card validator and Google's **Rich Results Test** (FAQPage).
+3. When the dashboard ships: add its public URLs (e.g. the public tournament list) to the sitemap, update `lastmod`, and block private routes (`/app`, `/account`, etc.) in `robots.txt`. Private tournaments must be `noindex`.
+4. When the platform opens: remove "Coming soon" from the meta description, the `<noscript>`, the OG image and the last FAQ answer.
+5. Update the sitemap `lastmod` whenever the legal pages change.
+6. Measure Core Web Vitals (Lighthouse / PageSpeed) after deploy; keep LCP < 2.5 s.
+7. Optional: add `sameAs` to `Organization` once official social accounts exist.

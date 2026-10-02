@@ -24,21 +24,21 @@ export default function Cta() {
         options={{ color: 0x111111, shininess: 35, waveHeight: 14, waveSpeed: 0.45, zoom: 0.85 }}
       />
       <div className="cta-inner">
-        <span className="cta-status"><i aria-hidden="true" /> Estamos terminando la plataforma</span>
+        <span className="cta-status"><i aria-hidden="true" /> We're finishing the platform</span>
         <SplitText as="h2" id="cta-title" className="cta-title" type="chars" stagger={0.025}>
-          Muy pronto.
+          Coming soon.
         </SplitText>
         <p className="lead">
-          Las inscripciones abren en cuanto el panel de torneos esté listo. ¿Organizas torneos o tienes una comunidad?
-          Escríbenos y te avisamos primero.
+          Sign-ups open as soon as the tournament dashboard is ready. Run tournaments or lead a community?
+          Write to us and you'll hear first.
         </p>
         <div className="cta-actions">
           <Magnet>
             {isAppLive() ? (
-              <a className="btn btn-light" href={SITE.appUrl}>Entrar a Runinback</a>
+              <a className="btn btn-light" href={SITE.appUrl}>Open Runinback</a>
             ) : (
-              <a className="btn btn-light" href={`mailto:${SITE.email}?subject=${encodeURIComponent('Quiero saber cuándo abre Runinback')}`}>
-                Avísame cuando abra
+              <a className="btn btn-light" href={`mailto:${SITE.email}?subject=${encodeURIComponent('Let me know when Runinback opens')}`}>
+                Notify me at launch
               </a>
             )}
           </Magnet>

@@ -18,9 +18,7 @@ const wrap = (v) => ((((v + N / 2) % N) + N) % N) - N / 2;
 
 function useClock() {
   const fmt = () =>
-    new Intl.DateTimeFormat('es-MX', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Mexico_City' })
-      .format(new Date())
-      .replace(/\s?([ap])\.?\s?m\.?/i, (_, p) => ` ${p.toUpperCase()}M`);
+    new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Mexico_City' }).format(new Date());
   const [time, setTime] = useState(fmt);
   useEffect(() => {
     const id = setInterval(() => setTime(fmt()), 15000);
@@ -147,27 +145,27 @@ export default function Hero() {
         </div>
 
         <div className="hero-topline">
-          <nav className="hero-nav" aria-label="Principal">
-            <a href="#inicio" aria-current="page">Índice</a>
-            <a href="#como-funciona" onClick={(e) => { e.preventDefault(); scrollToTarget('#como-funciona'); }}>Cómo funciona</a>
-            <a href="#premios" onClick={(e) => { e.preventDefault(); scrollToTarget('#premios'); }}>Premios</a>
+          <nav className="hero-nav" aria-label="Main">
+            <a href="#inicio" aria-current="page">Index</a>
+            <a href="#how-it-works" onClick={(e) => { e.preventDefault(); scrollToTarget('#how-it-works'); }}>How it works</a>
+            <a href="#prizes" onClick={(e) => { e.preventDefault(); scrollToTarget('#prizes'); }}>Prizes</a>
             <a href="#faq" onClick={(e) => { e.preventDefault(); scrollToTarget('#faq'); }}>FAQ</a>
           </nav>
-          <span className="hero-clock" aria-label={`Hora en Ciudad de México: ${time}`}>CDMX {time}</span>
-          <a className="hero-contact" href={`mailto:${SITE.email}`}>Contacto</a>
+          <span className="hero-clock" aria-label={`Time in Mexico City: ${time}`}>CST {time}</span>
+          <a className="hero-contact" href={`mailto:${SITE.email}`}>Contact</a>
         </div>
 
         <div className="hero-intro">
-          <h1 id="hero-title">Torneos de videojuegos 1 contra 1. Crea tu bracket, compite y gana.</h1>
+          <h1 id="hero-title">1v1 video game tournaments. Build your bracket, compete and win.</h1>
           <p>
-            Runinback es el índice de tus torneos. Un anfitrión arma el bracket, comparte un link y
-            los jugadores compiten hasta que queda un campeón, que se lleva el 85% de la bolsa.
+            Runinback is the index of your tournaments. A host builds the bracket, shares one link,
+            and players compete until a single champion is left, taking 85% of the prize pool.
           </p>
-          <p>Contacto: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+          <p>Contact: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
         </div>
 
         <div className="hero-stage" ref={stage} style={{ '--tw': `${size.w}px`, '--th': `${size.h}px` }}>
-          <span className="hero-side hero-side-l">Torneos</span>
+          <span className="hero-side hero-side-l">Tournaments</span>
           <span className="hero-bracket hero-bracket-l" aria-hidden="true" />
           <div className="hero-strip" aria-hidden="true">
             {INDEX_ITEMS.map((item, i) => {
@@ -187,14 +185,14 @@ export default function Hero() {
             })}
           </div>
           <span className="hero-bracket hero-bracket-r" aria-hidden="true" />
-          <span className="hero-side hero-side-r">Videojuegos</span>
+          <span className="hero-side hero-side-r">Video games</span>
           <p className="hero-note" aria-live="polite">
             <span className="hero-note-num">{String((hovered ?? active) + 1).padStart(2, '0')}/{String(N).padStart(2, '0')}</span>
             <DecryptedText key={current.id} text={current.note} speed={14} trigger="view" />
           </p>
         </div>
 
-        <ol className="hero-index" aria-label="Índice de Runinback" onMouseLeave={() => setHovered(null)}>
+        <ol className="hero-index" aria-label="Runinback index" onMouseLeave={() => setHovered(null)}>
           {INDEX_ITEMS.map((item, i) => (
             <li key={item.id}>
               <button
@@ -212,14 +210,14 @@ export default function Hero() {
         </ol>
 
         <div className="hero-foot">
-          <div className="hero-views" role="group" aria-label="Vista del índice">
+          <div className="hero-views" role="group" aria-label="Index view">
             {VIEWS.map((v, i) => (
               <button key={v.id} type="button" aria-pressed={view === v.id} className={view === v.id ? 'is-active' : ''} onClick={() => setView(v.id)}>
                 {v.label}{i < VIEWS.length - 1 ? '.' : ''}
               </button>
             ))}
           </div>
-          <span className="hero-rights">Muy pronto · © 2026 Runinback</span>
+          <span className="hero-rights">Coming soon · © 2026 Runinback</span>
         </div>
       </div>
     </section>

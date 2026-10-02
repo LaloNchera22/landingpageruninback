@@ -13,8 +13,8 @@ export default defineConfig({
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
         cookies: resolve(import.meta.dirname, 'cookies.html'),
-        privacidad: resolve(import.meta.dirname, 'privacidad.html'),
-        terminos: resolve(import.meta.dirname, 'terminos.html'),
+        privacy: resolve(import.meta.dirname, 'privacy.html'),
+        terms: resolve(import.meta.dirname, 'terms.html'),
         notFound: resolve(import.meta.dirname, '404.html'),
       },
     },

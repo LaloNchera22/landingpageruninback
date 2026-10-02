@@ -6,51 +6,50 @@ import { SITE } from '../lib/site.js';
 
 const sections = [
   {
-    id: 'que-son',
-    title: 'Qué son las cookies',
+    id: 'what-are-cookies',
+    title: 'What cookies are',
     body: (
       <>
         <p>
-          Las cookies son pequeños archivos de texto que un sitio web guarda en tu dispositivo.
-          Otras tecnologías parecidas, como el <strong>almacenamiento local</strong> del navegador
-          (<code>localStorage</code>), funcionan de forma similar: permiten que un sitio recuerde
-          tus preferencias entre visitas. En esta política usamos «cookies» para referirnos a todas
-          ellas.
+          Cookies are small text files that a website stores on your device. Similar
+          technologies, such as your browser&rsquo;s <strong>local storage</strong>{' '}
+          (<code>localStorage</code>), work in much the same way: they let a site remember your
+          preferences between visits. In this policy, &ldquo;cookies&rdquo; refers to all of them.
         </p>
       </>
     ),
   },
   {
-    id: 'como-usamos',
-    title: 'Cómo las usamos',
+    id: 'how-we-use',
+    title: 'How we use them',
     body: (
       <>
         <p>
-          {SITE.name} todavía no ha abierto: este sitio es una página de presentación sin cuentas,
-          sin inicio de sesión y sin pagos. Por eso mantenemos el uso de cookies al mínimo.
+          {SITE.name} has not launched yet: this site is a landing page with no accounts, no
+          sign-in and no payments. That is why we keep our use of cookies to a minimum.
         </p>
         <p>
-          <strong>Hoy solo usamos almacenamiento estrictamente necesario</strong>: el que guarda tu
-          elección sobre cookies. No usamos cookies de analítica, de publicidad ni de redes
-          sociales, y no compartimos información de tu navegación con terceros.
+          <strong>Today we only use strictly necessary storage</strong>: the entry that saves your
+          cookie choice. We do not use analytics, advertising or social media cookies, and we do
+          not share information about your browsing with third parties.
         </p>
       </>
     ),
   },
   {
-    id: 'tipos',
-    title: 'Tipos que usamos',
+    id: 'types',
+    title: 'Types we use',
     body: (
       <>
-        <h3>Necesarias · siempre activas</h3>
+        <h3>Necessary · always on</h3>
         <div className="lg-table-wrap">
           <table className="lg-table">
             <thead>
               <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Para qué</th>
-                <th scope="col">Duración</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Purpose</th>
+                <th scope="col">Duration</th>
               </tr>
             </thead>
             <tbody>
@@ -58,108 +57,107 @@ const sections = [
                 <td><code>{CONSENT_KEY}</code></td>
                 <td>localStorage</td>
                 <td>
-                  Recuerda si aceptaste o rechazaste las categorías opcionales, para no preguntarte
-                  en cada visita. No contiene datos que te identifiquen.
+                  Remembers whether you accepted or rejected the optional categories, so we
+                  don&rsquo;t ask you on every visit. It contains no data that identifies you.
                 </td>
-                <td>Hasta que la borres</td>
+                <td>Until you clear it</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h3>Opcionales · solo con tu consentimiento</h3>
+        <h3>Optional · only with your consent</h3>
         <div className="lg-table-wrap">
           <table className="lg-table">
             <thead>
               <tr>
-                <th scope="col">Categoría</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Para qué servirían</th>
+                <th scope="col">Category</th>
+                <th scope="col">Status</th>
+                <th scope="col">What they would be for</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Analíticas</td>
-                <td><span className="lg-tag lg-tag--off">No se usan</span></td>
+                <td>Analytics</td>
+                <td><span className="lg-tag lg-tag--off">Not used</span></td>
                 <td>
-                  Medir de forma agregada qué secciones se visitan para mejorar el sitio.
+                  Measuring, in aggregate, which sections get visited so we can improve the site.
                 </td>
               </tr>
               <tr>
                 <td>Marketing</td>
-                <td><span className="lg-tag lg-tag--off">No se usan</span></td>
-                <td>Medir campañas o mostrar anuncios relevantes.</td>
+                <td><span className="lg-tag lg-tag--off">Not used</span></td>
+                <td>Measuring campaigns or showing relevant ads.</td>
               </tr>
             </tbody>
           </table>
         </div>
         <p>
-          Si en el futuro añadimos alguna herramienta de estas categorías, solo se cargará
-          <strong> después</strong> de que la aceptes, y actualizaremos esta tabla con el nombre del
-          proveedor, las cookies que instala y su duración antes de activarla.
+          If we ever add a tool in one of these categories, it will only load
+          <strong> after</strong> you accept it, and before turning it on we will update this table
+          with the provider&rsquo;s name, the cookies it sets and how long they last.
         </p>
       </>
     ),
   },
   {
-    id: 'terceros',
-    title: 'Cookies de terceros',
+    id: 'third-party',
+    title: 'Third-party cookies',
     body: (
       <p>
-        Hoy no incrustamos contenido de terceros que instale cookies (videos, mapas, botones de
-        redes sociales ni píxeles de seguimiento). Nuestro proveedor de alojamiento puede registrar
-        datos técnicos de cada visita en sus registros de servidor; eso se explica en el{' '}
-        <a href="/privacidad.html">Aviso de privacidad</a>.
+        We currently do not embed any third-party content that sets cookies (videos, maps, social
+        media buttons or tracking pixels). Our hosting provider may record technical data about
+        each visit in its server logs; this is explained in our{' '}
+        <a href="/privacy.html">Privacy Policy</a>.
       </p>
     ),
   },
   {
-    id: 'gestionar',
-    title: 'Cómo gestionar tu elección',
+    id: 'manage',
+    title: 'How to manage your choice',
     body: (
       <>
         <p>
-          En tu primera visita verás un aviso con tres opciones con el mismo peso:{' '}
-          <strong>Rechazar</strong>, <strong>Configurar</strong> y <strong>Aceptar</strong>.
-          Rechazar es tan fácil como aceptar, y puedes cambiar de opinión en cualquier momento:
+          On your first visit you will see a notice with three equally weighted options:{' '}
+          <strong>Reject</strong>, <strong>Settings</strong> and <strong>Accept</strong>.
+          Rejecting is as easy as accepting, and you can change your mind at any time:
         </p>
         <button type="button" className="lg-inline-btn" onClick={openCookiePreferences}>
-          [ Configurar cookies ]
+          [ Cookie settings ]
         </button>
         <ul>
-          <li>Desde el enlace «Configurar cookies» en el pie de cada página.</li>
+          <li>From the &ldquo;Cookie settings&rdquo; link in the footer of every page.</li>
           <li>
-            Borrando los datos de este sitio en tu navegador: el aviso volverá a aparecer en tu
-            siguiente visita.
+            By clearing this site&rsquo;s data in your browser: the notice will appear again on
+            your next visit.
           </li>
           <li>
-            Bloqueando cookies y almacenamiento desde la configuración de tu navegador. Si bloqueas
-            el almacenamiento necesario, el sitio seguirá funcionando, pero te volveremos a
-            preguntar en cada visita.
+            By blocking cookies and storage in your browser settings. If you block the necessary
+            storage, the site will keep working, but we will ask you again on every visit.
           </li>
         </ul>
       </>
     ),
   },
   {
-    id: 'cambios',
-    title: 'Cambios en esta política',
+    id: 'changes',
+    title: 'Changes to this policy',
     body: (
       <p>
-        Actualizaremos esta política cuando cambie nuestro uso de cookies (por ejemplo, al abrir la
-        plataforma o al incorporar analítica) y modificaremos la fecha de «Última actualización».
-        Si los cambios afectan a categorías opcionales, te pediremos de nuevo tu consentimiento.
+        We will update this policy whenever our use of cookies changes (for example, when the
+        platform launches or if we add analytics) and revise the &ldquo;Last updated&rdquo; date.
+        If the changes affect optional categories, we will ask for your consent again.
       </p>
     ),
   },
   {
-    id: 'contacto',
-    title: 'Contacto',
+    id: 'contact',
+    title: 'Contact',
     body: (
       <p>
-        Si tienes dudas sobre cookies escríbenos a <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
-        Para saber cómo tratamos los datos personales en general, consulta el{' '}
-        <a href="/privacidad.html">Aviso de privacidad</a>.
+        If you have questions about cookies, email us at{' '}
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. To learn how we handle personal data in
+        general, see our <a href="/privacy.html">Privacy Policy</a>.
       </p>
     ),
   },
@@ -169,8 +167,8 @@ function CookiesPage() {
   return (
     <LegalLayout
       current="cookies"
-      title="Política de cookies"
-      lead="Qué guardamos en tu navegador, para qué y cómo cambiar tu elección."
+      title="Cookie Policy"
+      lead="What we store in your browser, why, and how to change your choice."
       sections={sections}
     />
   );

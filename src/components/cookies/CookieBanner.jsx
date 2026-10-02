@@ -12,13 +12,13 @@ import './CookieBanner.css';
 const OPTIONAL = [
   {
     key: 'analytics',
-    title: 'Analíticas',
-    text: 'Nos dirían, de forma agregada, qué secciones se visitan para mejorar el sitio. Hoy no usamos ninguna.',
+    title: 'Analytics',
+    text: 'Would tell us, in aggregate, which sections get visited so we can improve the site. We don’t use any today.',
   },
   {
     key: 'marketing',
     title: 'Marketing',
-    text: 'Servirían para medir campañas o mostrar anuncios relevantes. Hoy no usamos ninguna.',
+    text: 'Would help us measure campaigns or show relevant ads. We don’t use any today.',
   },
 ];
 
@@ -52,7 +52,7 @@ export default function CookieBanner({ policyHref = '/cookies.html' }) {
   }, []);
 
   // Return focus once the dialog has unmounted. If the opener was the banner's
-  // own "Configurar" button (hidden while the dialog is open), focus its
+  // own "Settings" button (hidden while the dialog is open), focus its
   // re-rendered counterpart instead.
   useEffect(() => {
     if (open || !restoreFocusRef.current) return;
@@ -117,15 +117,15 @@ export default function CookieBanner({ policyHref = '/cookies.html' }) {
   return (
     <>
       {showBanner && (
-        <section className="rib-cookie-bar" role="region" aria-label="Aviso de cookies">
+        <section className="rib-cookie-bar" role="region" aria-label="Cookie notice">
           <div className="rib-cookie-bar__inner">
             <p className="rib-cookie-bar__label">
               <span aria-hidden="true">[</span> Cookies <span aria-hidden="true">]</span>
             </p>
             <p className="rib-cookie-bar__text">
-              Solo usamos lo necesario para que el sitio funcione. Si aceptas, podríamos
-              activar analíticas más adelante. Más en la{' '}
-              <a href={policyHref}>Política de cookies</a>.
+              We only use what’s needed to make the site work. If you accept, we may
+              turn on analytics later. More in our{' '}
+              <a href={policyHref}>Cookie Policy</a>.
             </p>
             <div className="rib-cookie-bar__actions">
               <button
@@ -134,13 +134,13 @@ export default function CookieBanner({ policyHref = '/cookies.html' }) {
                 className="rib-cbtn rib-cbtn--ghost"
                 onClick={openPrefs}
               >
-                Configurar
+                Settings
               </button>
               <button type="button" className="rib-cbtn" onClick={() => decide(rejectAll)}>
-                Rechazar
+                Reject
               </button>
               <button type="button" className="rib-cbtn" onClick={() => decide(acceptAll)}>
-                Aceptar
+                Accept
               </button>
             </div>
           </div>
@@ -160,35 +160,35 @@ export default function CookieBanner({ policyHref = '/cookies.html' }) {
             aria-describedby={descId}
           >
             <header className="rib-cookie-dialog__head">
-              <p className="rib-cookie-dialog__label">[ Preferencias ]</p>
+              <p className="rib-cookie-dialog__label">[ Preferences ]</p>
               <button
                 type="button"
                 className="rib-cookie-dialog__close"
                 onClick={closePrefs}
-                aria-label="Cerrar preferencias de cookies"
+                aria-label="Close cookie preferences"
               >
-                Cerrar <span aria-hidden="true">×</span>
+                Close <span aria-hidden="true">×</span>
               </button>
             </header>
 
             <div className="rib-cookie-dialog__body" data-lenis-prevent>
-              <h2 id={titleId} className="rib-cookie-dialog__title">Configurar cookies</h2>
+              <h2 id={titleId} className="rib-cookie-dialog__title">Cookie settings</h2>
               <p id={descId} className="rib-cookie-dialog__intro">
-                Elige qué categorías permites. Puedes cambiarlo cuando quieras desde
-                «Configurar cookies» en el pie de página.{' '}
-                <a href={policyHref}>Leer la política</a>.
+                Choose which categories you allow. You can change this anytime from
+                “Cookie settings” in the footer.{' '}
+                <a href={policyHref}>Read the policy</a>.
               </p>
 
               <ul className="rib-cookie-cats">
                 <li className="rib-cookie-cat">
                   <span className="rib-cookie-cat__idx" aria-hidden="true">01</span>
                   <div className="rib-cookie-cat__copy">
-                    <p className="rib-cookie-cat__title" id={`${titleId}-necessary`}>Necesarias</p>
+                    <p className="rib-cookie-cat__title" id={`${titleId}-necessary`}>Necessary</p>
                     <p className="rib-cookie-cat__text">
-                      Guardan tu elección de cookies para no volver a preguntarte. Siempre activas.
+                      Store your cookie choice so we don’t ask again. Always on.
                     </p>
                   </div>
-                  <Toggle checked disabled labelledBy={`${titleId}-necessary`} note="Siempre" />
+                  <Toggle checked disabled labelledBy={`${titleId}-necessary`} note="Always" />
                 </li>
                 {OPTIONAL.map((cat, i) => (
                   <li className="rib-cookie-cat" key={cat.key}>
@@ -209,17 +209,17 @@ export default function CookieBanner({ policyHref = '/cookies.html' }) {
 
             <footer className="rib-cookie-dialog__foot">
               <button type="button" className="rib-cbtn rib-cbtn--line" onClick={() => decide(rejectAll)}>
-                Rechazar todo
+                Reject all
               </button>
               <button type="button" className="rib-cbtn rib-cbtn--line" onClick={() => decide(acceptAll)}>
-                Aceptar todo
+                Accept all
               </button>
               <button
                 type="button"
                 className="rib-cbtn rib-cbtn--solid"
                 onClick={() => decide(() => setConsent(draft))}
               >
-                Guardar selección
+                Save choices
               </button>
             </footer>
           </div>
@@ -241,7 +241,7 @@ function Toggle({ checked, disabled = false, onChange, labelledBy, note }) {
       onClick={() => onChange?.(!checked)}
     >
       <span className="rib-switch__state" aria-hidden="true">
-        {note || (checked ? 'Sí' : 'No')}
+        {note || (checked ? 'On' : 'Off')}
       </span>
       <span className="rib-switch__track" aria-hidden="true">
         <span className="rib-switch__thumb" />

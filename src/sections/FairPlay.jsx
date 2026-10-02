@@ -3,18 +3,18 @@ import SplitText from '../bits/SplitText';
 import SectionLabel from './SectionLabel';
 
 const RULES = [
-  { t: 'El anfitrión no juega', d: 'Quien decide las partidas no puede inscribirse en su propio torneo.' },
-  { t: 'Las apelaciones las revisa una persona', d: 'Nuestro equipo revisa el chat y las capturas. Si la decisión fue incorrecta, el premio y la comisión pasan al ganador correcto.' },
-  { t: 'Las decisiones rápidas se revisan', d: 'Ganar por no presentación exige 10 minutos de espera y un motivo. Los patrones sospechosos se marcan para revisión.' },
-  { t: 'Sales sin perder nada', d: 'Antes de que arranque el bracket puedes salir con reembolso completo. Si el torneo se cancela, todos recuperan su inscripción.' },
+  { t: "Hosts can't play", d: "The person who decides the matches can't enter their own tournament." },
+  { t: 'Appeals go to a person', d: "Our team reviews the match chat and screenshots. A wrong call moves the prize and the host's commission to the right winner." },
+  { t: 'Quick calls get checked', d: 'A walkover needs a 10-minute wait and a reason. Suspicious patterns are flagged for review.' },
+  { t: 'Leave without losing anything', d: 'Until the bracket starts you can leave for a full refund. If a tournament is canceled, everyone gets their entry fee back.' },
 ];
 
 export default function FairPlay() {
   return (
     <section className="fair" aria-labelledby="fair-title">
-      <SectionLabel n="06">Juego limpio</SectionLabel>
+      <SectionLabel n="06">Fair play</SectionLabel>
       <SplitText as="h2" id="fair-title" className="h2" type="words" stagger={0.05}>
-        Los anfitriones deciden. Las personas revisan.
+        Hosts decide. People review.
       </SplitText>
       <ol className="fair-list">
         {RULES.map((r, i) => (

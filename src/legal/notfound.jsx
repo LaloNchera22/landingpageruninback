@@ -11,15 +11,15 @@ function NotFoundPage() {
           <p className="lg-404__code" aria-hidden="true">404</p>
           <div className="lg-404__row">
             <div>
-              <h1 id="nf-title" className="lg-404__title">Esta página no existe.</h1>
+              <h1 id="nf-title" className="lg-404__title">This page doesn’t exist.</h1>
               <p className="lg-404__text">
-                El enlace puede estar roto o la página se movió. Vuelve al inicio para ver qué
-                estamos construyendo.
+                The link may be broken or the page may have moved. Head back home to see what
+                we’re building.
               </p>
             </div>
             <div className="lg-404__links">
-              <a className="lg-btn lg-btn--solid" href="/">Volver al inicio</a>
-              <a className="lg-btn" href="/terminos.html">Términos</a>
+              <a className="lg-btn lg-btn--solid" href="/">Back to home</a>
+              <a className="lg-btn" href="/terms.html">Terms of Service</a>
             </div>
           </div>
         </section>

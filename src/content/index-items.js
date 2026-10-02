@@ -1,12 +1,12 @@
 // The hero "index": each entry is one thing Runinback does. `tile` picks the
 // animated typographic card shown in the center column.
 export const INDEX_ITEMS = [
-  { id: 'brackets', name: 'Brackets 1v1', tile: 'versus', tone: 'ink', note: 'Eliminación directa. Un rival, una partida, un ganador que avanza.' },
-  { id: 'jugadores', name: '4 a 32 jugadores', tile: 'seats', tone: 'paper', note: 'El bracket arranca cuando se llenan los lugares, o antes con 4 o más.' },
-  { id: 'privados', name: 'Torneos privados', tile: 'code', tone: 'grey', note: 'Solo entra quien tenga tu link o código de invitación.' },
-  { id: 'anfitriones', name: 'Anfitriones', tile: 'host', tone: 'ink', note: 'Organiza, abre cada sala y decide quién avanza. Gana el 5%.' },
-  { id: 'premios', name: 'Bolsa de premios', tile: 'pool', tone: 'paper', note: 'Todas las inscripciones forman la bolsa. El campeón se lleva el 85%.' },
-  { id: 'apelaciones', name: 'Apelaciones 24 h', tile: 'clock', tone: 'ink', note: 'Si una decisión fue injusta, apelas. Una persona la revisa.' },
-  { id: 'juego-limpio', name: 'Juego limpio', tile: 'fair', tone: 'grey', note: 'El anfitrión no puede jugar su propio torneo.' },
-  { id: 'cualquier-juego', name: 'Cualquier juego', tile: 'genres', tone: 'ink', note: 'Peleas, deportes, shooters, estrategia: si tiene partidas privadas, va.' },
+  { id: 'brackets', name: '1v1 Brackets', tile: 'versus', tone: 'ink', note: 'Single elimination. One opponent, one match, one winner who moves on.' },
+  { id: 'players', name: '4 to 32 players', tile: 'seats', tone: 'paper', note: 'The bracket starts when every seat fills, or early with 4 or more.' },
+  { id: 'private', name: 'Private tournaments', tile: 'code', tone: 'grey', note: 'Only people with your invite link or code can join.' },
+  { id: 'hosts', name: 'Hosts', tile: 'host', tone: 'ink', note: 'Run it, open each lobby and decide who advances. Earn 5%.' },
+  { id: 'prizes', name: 'Prize pool', tile: 'pool', tone: 'paper', note: 'Every entry fee goes into the pool. The champion takes 85%.' },
+  { id: 'appeals', name: '24h appeals', tile: 'clock', tone: 'ink', note: 'If a call was unfair, appeal it. A person reviews it.' },
+  { id: 'fair-play', name: 'Fair play', tile: 'fair', tone: 'grey', note: "Hosts can't play in their own tournament." },
+  { id: 'any-game', name: 'Any game', tile: 'genres', tone: 'ink', note: 'Fighting, sports, shooters, strategy: if it has private matches, it works.' },
 ];
